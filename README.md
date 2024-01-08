@@ -22,6 +22,7 @@
 
 **The Blog application is designed to serve as a typical blog website. It aims to deliver a complete and operational web platform where users can explore a catalog of articles and engage with them through actions like leaving comments and expressing their appreciation by liking posts..
 
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -36,6 +37,7 @@
 - **Functional website**
 - **Unit testing**
 - **Database**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,4 +146,5 @@ I want to thank Garvin for always availing themselves of detailed project discus
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
