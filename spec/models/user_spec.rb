@@ -24,10 +24,10 @@ RSpec.describe User, type: :model do
   end
 
   it 'displays three recent posts when called' do
-    posts = 4.times.map do |i| 
-    post = subject.posts.create(title: "Post #{i}") 
-    post.save
-    post
+    4.times.map do |i|
+      post = subject.posts.create(title: "Post #{i}")
+      post.save
+      post
+    end
   end
- end
 end
