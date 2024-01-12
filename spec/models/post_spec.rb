@@ -33,4 +33,30 @@ RSpec.describe Post, type: :model do
   it "shouldn't be any comments exists" do
     expect(subject.recent_comments.length).to eq(0)
   end
+
+  it 'should not have any posts' do
+    user = User.create(name: 'User')
+    expect(user.posts.length).to eq(0)
+  end
+
+  it 'should display recent comment' do
+    user = User.create(name: 'User')
+    subject.user = user
+    subject.title = "Post title#{'a' * 250}"
+    subject.text = 'Post text'
+    subject.author = user
+    subject.save!
+    2.times do |i|
+      subject.comments.create!(text: "Comment #{i}", user:)
+    end
+  end
+
+  it 'should increment the posts counter of the related user when saved' do
+    user = User.create(name: 'User', posts_counter: 0)
+    2.times do |i|
+      post = user.posts.create(title: "Post #{i}", text: "Text #{i}")
+      post.save
+    end
+    user.reload
+  end
 end

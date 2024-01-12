@@ -24,10 +24,19 @@ RSpec.describe User, type: :model do
   end
 
   it 'displays three recent posts when called' do
-    4.times.map do |i|
+    4.times do |i|
       post = subject.posts.create(title: "Post #{i}")
       post.save
-      post
     end
+    expect(subject.posts.length).to eq(4)
+  end
+
+  it 'should display posts created by user' do
+    user = User.create(name: 'User')
+    2.times do |i|
+      post = user.posts.create(title: "Post #{i}", text: "Text #{i}")
+      post.save
+    end
+    expect(user.posts.length).to eq(2)
   end
 end
