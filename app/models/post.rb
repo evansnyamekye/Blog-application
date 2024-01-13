@@ -1,7 +1,21 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id', counter_cache: true
   has_many :comments
   has_many :likes
+
+  after_save :update_posts_counter
+
+  # title must not be blank
+  validates :title, presence: true
+
+  # title must not exceed 250 characters
+  validates :title, length: { maximum: 250 }
+
+  # CommentsCounter must be an integer greater than or equal to zero
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  # LikesCounter must be an integer greater than or equal to zero
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def five_most_recent_comments
     comments.order(created_at: :desc).limit(5)
@@ -12,6 +26,6 @@ class Post < ApplicationRecord
   private
 
   def update_posts_counter
-    author.update(posts_count: author.posts.count)
+    author.update(posts_counter: author.posts.count)
   end
 end
