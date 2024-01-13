@@ -4,12 +4,22 @@ RSpec.describe Like, type: :model do
   subject { Like.new }
   before { subject.save }
 
-  it 'like_counter method should raise an error without post' do
-    expect { subject.like_counter }.to raise_error(NoMethodError)
+  it 'likes_counter method should raise error without post' do
+    expect { subject.likes_counter }.to raise_error(NoMethodError)
   end
 
-  it 'should increment the likes counter of the related post when saved' do
-    user = User.create(name: 'User')
-    Post.create(title: 'Post', text: 'Text', user:)
+  it 'check validity of post presence' do
+    subject.post = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'check validity of user presence' do
+    subject.user = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'check uniqueness of user_id and post_id' do
+    like = Like.new(user_id: subject.user_id, post_id: subject.post_id)
+    expect(like).to_not be_valid
   end
 end
