@@ -21,6 +21,12 @@ RSpec.describe User, type: :model do
   end
 
   it 'returns no more than 3 posts' do
-    expect(subject.three_recent_posts.length).to be <= 3
+    user = User.create(name: 'name', photo: 'url', bio: 'bio', posts_counter: 0)
+    Post.create(author_id: user.id, title: 'post', text: 'text', likes_counter: 0, comments_counter: 0)
+    Post.create(author_id: user.id, title: 'post', text: 'text', likes_counter: 0, comments_counter: 0)
+    Post.create(author_id: user.id, title: 'post', text: 'text', likes_counter: 0, comments_counter: 0)
+    Post.create(author_id: user.id, title: 'post', text: 'text', likes_counter: 0, comments_counter: 0)
+    recent_posts = user.three_recent_posts
+    expect(recent_posts).to eq(user.posts.last(3))
   end
 end
