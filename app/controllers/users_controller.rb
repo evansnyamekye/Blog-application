@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]) # params[:id] is the id of the user that we want to show
+    @user = User.find(params[:id])
   end
 end
