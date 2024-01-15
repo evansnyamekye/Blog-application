@@ -37,6 +37,8 @@
 - **Functional website**
 - **Unit testing**
 - **Database**
+- **Authentication**
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,7 +125,7 @@ Example command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/evansnyamekye/Blog-application.git/issues).
+Feel free to check the [issues page](https://github.com/evansnyamekye/Blog-application/issues/6).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
