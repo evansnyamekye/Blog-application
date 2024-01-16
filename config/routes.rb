@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # root 'pages#hello'
   # root 'posts#index'
   #These are the routes for the users and posts controllers which are nested and also known as rourte definitions
-  root 'users#index'
+  # root 'users#index'
   resources :users, only: [:index, :show] do
   resources :posts, only: [:index, :show]
   end
