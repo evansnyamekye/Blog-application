@@ -10,16 +10,16 @@
     </div>
   </div>
 
-  <% @posts.limit(2).each do |post| %>
+  <% @posts.each do |post| %>
     <div class="post">
       <h4>Post</h4>
-      <p><%= post.text %></p>
+      <p><%=link_to post.text, user_post_path(@user, post)%></p>
       <p class="count">Comments: <%= post.comments.count %> | Likes: <%= post.likes.count %></p>
     </div>
       <div class="comments">
         <% post.five_most_recent_comments.each do |comment| %>
           <div class="comment">
-            <p><%= link_to comment.author.name, user_path(comment.author) %>: <%= comment.text %></p>
+            <p><%= link_to comment.user.name, user_path(comment) %>: <%= comment.text %></p>
           </div>
         <% end %>
       </div>
