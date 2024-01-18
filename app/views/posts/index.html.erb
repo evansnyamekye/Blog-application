@@ -1,2 +1,29 @@
-<h1>Posts#index</h1>
-<p>Hey! Guys, this is my post app/views/posts/index.html.erb</p>
+<h1>Great Quotes</h1>
+<div class="container">
+  <div class="user_info">
+    <div class="img">
+      <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" %>
+    </div>
+    <div class="user">
+      <h2><%= link_to @user.name, user_path(@user) %></h2>
+      <p><strong>Number of Posts:</strong> <%= @user.posts.count %></p>
+    </div>
+  </div>
+
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h4>Post</h4>
+      <p><%=link_to post.text, user_post_path(@user, post)%></p>
+      <p class="count">Comments: <%= post.comments.count %> | Likes: <%= post.likes.count %></p>
+    </div>
+      <div class="comments">
+        <% post.five_most_recent_comments.each do |comment| %>
+          <div class="comment">
+            <p><%= link_to comment.user.name, user_path(comment) %>: <%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+
+  <%= link_to 'Pagination', user_posts_path(@user), class: 'button' %>
+</div>
