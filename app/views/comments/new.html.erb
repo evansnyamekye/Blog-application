@@ -1,0 +1,10 @@
+<h3 style="color: #336699; margin: 12px 50px">Create a new comment💬</h3>
+<%= form_with model: [@user, @post, @comment], url: user_post_comments_path(@post.author, @post), method: :post do |f| %>
+  <div class="inputs">
+    <%= f.label :text, style: "font-weight: bold;" %>
+    <%= f.text_area :text, style: "width: 230px; height: 80px; padding: 10px" %>
+  </div>
+  <div>
+    <%= f.submit "Submit the comment💬", style: "background-color: #007BFF; margin: 10px 100px; color: #fff; padding: 10px 15px; border: none; border-radius: 5px;" %>
+  </div>
+<% end %>
