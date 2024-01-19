@@ -1,0 +1,16 @@
+<h3 style="color: #336699; margin: 12px">Create a new post📝😍</h3>
+
+<%= form_with model: [@user, @post], url: user_posts_path(@user), method: :post do |f| %>
+  <div class="inputs">
+    <%= f.label :title, style: "font-weight: bold;" %>
+    <%= f.text_field :title, style: "padding: 10px;" %>
+  </div>
+  <br>
+  <div class="inputs">
+    <%= f.label :text, style: "font-weight: bold;" %>
+    <%= f.text_area :text, style: "width: 190px; height: 80px; padding: 10px" %>
+  </div>
+  <div>
+    <%= f.submit "Submit the post📝", style: "background-color: #33cc33; margin: 10px 100px; color: #fff; padding: 10px 15px; border: none; cursor: pointer;" %>
+  </div>
+<% end %>

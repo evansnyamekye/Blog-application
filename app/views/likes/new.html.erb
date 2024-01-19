@@ -1,0 +1,6 @@
+<h3 style="color: #336699; margin: 12px">If you Like the post just Click the button 👍😍</h3>
+<%= form_with model: [@user, @post, @like], url: user_post_likes_path(@user, @post), method: :post do |f| %>
+  <div>
+    <%= f.submit "👍 Like", style: "background-color: #007BFF; margin: 10px 110px; color: #fff; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;" %>
+  </div>
+<% end %>
