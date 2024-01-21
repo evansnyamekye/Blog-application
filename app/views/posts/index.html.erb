@@ -14,7 +14,7 @@
     <div class="post">
       <h4>Post📝</h4>
       <p><%= post.text %></p>
-      <p class="count">Comments:💬<%= post.comments.count %> | Likes:👍<%= post.likes.count %></p>
+      <p class="count">Comments:💬<%= post.comments.size %> | Likes:👍<%= post.likes.size %></p>
     </div>
       <div class="comments">
         <% post.five_most_recent_comments.each do |comment| %>
