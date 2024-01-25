@@ -38,7 +38,8 @@ RSpec.describe 'Users#show', type: :feature, js: true do
   it 'displays the user first 3 posts' do
     visit '/users'
     click_on 'Lilly'
-    expect(page).to have_content('First Post')
+    user.three_recent_posts.each do |post|
+    expect(page).to have_content('post')
   end
   # I can see a button that lets me view all of a user's posts.
   it 'displays a button that lets me view all of a user posts' do

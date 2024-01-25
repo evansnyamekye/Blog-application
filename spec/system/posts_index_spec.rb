@@ -63,7 +63,7 @@ describe 'Post Index Page Features', type: :feature, js: true do
   # I can see the first comments on a post
   it 'can see the first comments of a post' do
     posts.each do |post|
-      post.comments.each do |comment|
+      post.five_most_recent_comments.each do |comment|
         expect(page).to have_content(comment.text)
       end
     end
