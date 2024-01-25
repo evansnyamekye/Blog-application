@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users#index', type: :system do
+RSpec.describe 'Users#index', type: :feature, js: true do
   before(:all) do
     User.destroy_all
     Post.destroy_all
