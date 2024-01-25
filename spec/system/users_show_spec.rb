@@ -6,7 +6,7 @@ RSpec.describe 'Users#show', type: :feature, js: true do
     Comment.destroy_all
     @lilly = User.create!(name: 'Lilly', photo: 'https://portraits.ai', bio: 'Teacher from Poland.', posts_counter: 0)
     @post = Post.create!(title: 'First Post', text: 'This is my first post', author: @lilly, comments_counter: 0,
-                 likes_counter: 0)
+                         likes_counter: 0)
     @tom = User.create!(name: 'Tom', photo: 'https://portraits.ai', bio: 'Teacher from Mexico.', posts_counter: 0)
     @users = User.all
   end
@@ -20,7 +20,7 @@ RSpec.describe 'Users#show', type: :feature, js: true do
   it 'displays the user username' do
     visit '/users'
     click_on 'Lilly'
-    expect(page).to have_content("#{@lilly.name}")
+    expect(page).to have_content(@lilly.name.to_s)
   end
   # I can see the number of posts the user has written.
   it 'displays the number of posts the user has written' do
