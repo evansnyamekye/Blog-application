@@ -38,29 +38,30 @@ RSpec.describe 'Users#show', type: :feature, js: true do
   it 'displays the user first 3 posts' do
     visit '/users'
     click_on 'Lilly'
-    user.three_recent_posts.each do |post|
-    expect(page).to have_content('post')
-  end
-  # I can see a button that lets me view all of a user's posts.
-  it 'displays a button that lets me view all of a user posts' do
-    visit '/users'
-    click_on 'Lilly'
-    expect(page).to have_link('See all posts')
-  end
-  # When I click a user's post, it redirects me to that post's show page.
-  it 'redirects to post show page when clicking a user\'s post' do
-    visit user_path(@lilly)
-    # Assuming you have a link to the post within the user's show page
-    click_link(href: user_post_path(@lilly, @post))
-    # Assert that the current path is the post show page
-    expect(page).to have_content('Lilly')
-  end
-  # # When I click to see all posts, it redirects me to the user's post's index page.
-  it 'redirects to user\'s post index page when clicking to see all posts' do
-    visit user_path(@lilly)
-    # Assuming you have a link to see all posts within the user's show page
-    click_link('See all posts')
-    # Remove trailing slashes and normalize the paths before comparison
-    expect(page).to have_content('Lilly')
+    user.three_recent_posts.each do |_post|
+      expect(page).to have_content('post')
+    end
+    # I can see a button that lets me view all of a user's posts.
+    it 'displays a button that lets me view all of a user posts' do
+      visit '/users'
+      click_on 'Lilly'
+      expect(page).to have_link('See all posts')
+    end
+    # When I click a user's post, it redirects me to that post's show page.
+    it 'redirects to post show page when clicking a user\'s post' do
+      visit user_path(@lilly)
+      # Assuming you have a link to the post within the user's show page
+      click_link(href: user_post_path(@lilly, @post))
+      # Assert that the current path is the post show page
+      expect(page).to have_content('Lilly')
+    end
+    # # When I click to see all posts, it redirects me to the user's post's index page.
+    it 'redirects to user\'s post index page when clicking to see all posts' do
+      visit user_path(@lilly)
+      # Assuming you have a link to see all posts within the user's show page
+      click_link('See all posts')
+      # Remove trailing slashes and normalize the paths before comparison
+      expect(page).to have_content('Lilly')
+    end
   end
 end
