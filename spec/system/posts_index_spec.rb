@@ -14,7 +14,9 @@ describe 'Post Index Page Features', type: :feature, js: true do
       Post.create(author: user, title: 'Post 1', text: 'text 1'),
       Post.create(author: user, title: 'Post 2', text: 'text 2'),
       Post.create(author: user, title: 'Post 3', text: 'text 3'),
-      Post.create(author: user, title: 'Post 4', text: 'text 4')
+      Post.create(author: user, title: 'Post 4', text: 'text 4'),
+      Post.create(author: user, title: 'Post 5', text: 'text 5'),
+      Post.create(author: user, title: 'Post 6', text: 'text 6')
     ]
   end
 
@@ -22,7 +24,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
     [
       Comment.create(user:, text: 'comment 1', post: user.posts.first),
       Comment.create(user:, text: 'comment 2', post: user.posts.first),
-      Comment.create(user:, text: 'comment 3', post: user.posts.first)
+      Comment.create(user:, text: 'comment 3', post: user.posts.first),
+      Comment.create(user:, text: 'comment 4', post: user.posts.first),
+      Comment.create(user:, text: 'comment 5', post: user.posts.first),
+      Comment.create(user:, text: 'comment 6', post: user.posts.first)
     ]
   end
 
