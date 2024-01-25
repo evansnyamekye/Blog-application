@@ -5,8 +5,18 @@
     </div>
   <% end %>
 
+  <div class="user_info">
+    <div class="img">
+      <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" %>
+    </div>
+    <div class="user">
+      👤<h2><%= link_to @user.name, user_path(@user) %></h2>
+      <p><strong>Number of Posts:📝</strong> <%= @user.posts.count %></p>
+    </div>
+  </div>
+
   <div class="post">
-    <h4>Post <%= @post.title %></h4>
+    <h4><%= @post.title %></h4>
     <p class="count">Comments:💬<%= @post.comments.count %> | Likes:📝<%= @post.likes.count %></p>
     <p><%= @post.text %></p>
   </div>
