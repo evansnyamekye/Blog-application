@@ -109,12 +109,11 @@ Example command:
 - Twitter: [@nyamekye2131](https://twitter.com/nyamekye2131)
 - LinkedIn: [Evans Kofi Nyamekye](https://www.linkedin.com/in/evans-kofi-nyamekye-1980a4117/)
 
+👤 **Christopher Uduekwe**
 
-👤 Christopher Uduekwe
-
-GitHub: @githubhandle
-Twitter: @twitterhandle
-LinkedIn: LinkedIn
+- GitHub: [@githubhandle](https://github.com/chudisoft)
+- Twitter: [@twitterhandle](https://twitter.com/chrisuduekwe)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/christopher-uduekwe)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
