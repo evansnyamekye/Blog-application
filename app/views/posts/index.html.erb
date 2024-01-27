@@ -4,23 +4,23 @@
       <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" if @user.photo %>
     </div>
     <div class="user">
-      :bust_in_silhouette:<h2><%= link_to @user.name, user_path(@user) %></h2>
-      <p><strong>Number of Posts::memo:</strong> <%= @user.posts.count %></p>
+      <h2><%= link_to @user.name, user_path(@user) %></h2>
+      <p><strong>Number of Posts</strong> <%= @user.posts.count %></p>
     </div>
   </div>  <% @posts.limit(2).each do |post| %>
     <div class="post">
-      <h4>Post:memo:</h4>
+      <h4>Post</h4>
       <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
       <p><%= post.text %></p>
-      <p class="count">Comments::speech_balloon:<%= post.comments.count %> | Likes::+1:<%= post.likes.count %></p>
+      <p class="count">Comments<%= post.comments.count %> | Likes:<%= post.likes.count %></p>
     </div>
       <div class="comments">
         <% post.five_most_recent_comments.each do |comment| %>
           <div class="comment">
-          <p>:bust_in_silhouette:<%= link_to comment.user.name, user_path(comment.user) %>: <%= comment.text %></p>
+          <p><%= link_to comment.user.name, user_path(comment.user) %>: <%= comment.text %></p>
           </div>
         <% end %>
       </div>
   <% end %>  <%= link_to 'Pagination', user_posts_path(@user), class: 'button' %>
-  <%= link_to 'Create New Post :memo:', new_user_post_path(@user), class: 'button' %>
+  <%= link_to 'Create New Post', new_user_post_path(@user), class: 'button' %>
 </div>
