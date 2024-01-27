@@ -32,6 +32,21 @@
   <%= link_to 'Create New Comment 💬', new_user_post_comment_path(@user, @post), class: 'button' %>
   <h3 style="color: #336699; margin: 12px 50px">Create a new comment💬</h3>
   <%= form_with url: user_post_likes_path(@user, @post), method: :post do |f| %>
+
+  <% if can? :destroy, @post %>
+  <%= link_to 'Delete', user_post_path(@user, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <div class="comments">
+  <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <p><%= comment.user&.name %>: <%= comment.text %></p>
+      <% if can? :destroy, comment %>
+        <%= link_to 'Delete Comment', user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
   
     <div>
       <%= f.submit 'Like 👍', class: 'button'%>
