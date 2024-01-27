@@ -13,6 +13,10 @@ class User < ApplicationRecord
   # PostsCounter must be an integer greater than or equal to zero.
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  def admin?
+    role == 'admin'
+  end
+
   def three_recent_posts
     posts.last(3)
   end
