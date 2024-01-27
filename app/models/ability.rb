@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     else
       can :read, :all
-      can %i[update destroy], [Post, Comment], user_id: user.id
+      can [:update, :destroy], Post, author_id: user.id
     end
   end
 end

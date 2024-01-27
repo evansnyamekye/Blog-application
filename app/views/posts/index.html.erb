@@ -19,7 +19,7 @@
       <div class="comments">
         <% post.five_most_recent_comments.each do |comment| %>
           <div class="comment">
-            <p>👤<%= link_to comment.author.name, user_path(comment.author) %>: <%= comment.text %></p>
+          <p>👤<%= link_to comment.user.name, user_path(comment.user) %>: <%= comment.text %></p>
           </div>
         <% end %>
       </div>
