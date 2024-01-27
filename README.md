@@ -115,7 +115,6 @@ GitHub: @githubhandle
 Twitter: @twitterhandle
 LinkedIn: LinkedIn
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name='future-features'></a>
