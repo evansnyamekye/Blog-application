@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def three_recent_posts
     posts.last(3)
   end
+
+  def generate_token
+    self.token = SecureRandom.base58(30)
+  end
 end
