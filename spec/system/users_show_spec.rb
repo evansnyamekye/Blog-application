@@ -66,7 +66,7 @@ RSpec.describe 'Users#show', type: :feature, js: true do
     expect(page).to have_content('Lilly')
   end
 
-  # # When I click to see all posts, it redirects me to the user's post's index page.
+  # When I click to see all posts, it redirects me to the user's post's index page.
   it 'redirects to user\'s post index page when clicking to see all posts' do
     visit user_path(@lilly)
 
