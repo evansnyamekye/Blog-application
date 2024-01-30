@@ -5,25 +5,40 @@
     </div>
   <% end %>
 
+  <div class="user_info">
+    <div class="img">
+    <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" if @user.photo %>
+    </div>
+    <div class="user">
+      👤<h2><%= link_to @user.name, user_path(@user) %></h2>
+      <p><strong>Number of Posts:📝</strong> <%= @user.posts.count %></p>
+      <%if can? :destroy, @post %>
+              <%= button_to "Delete Post", user_post_path(@user.id, @post.id), :method => :delete %>
+      <%end%>
+    </div>
+  </div>
+
   <div class="post">
-    <h4>Post <%= @post.title %></h4>
+    <h4><%= @post.title %></h4>
     <p class="count">Comments:💬<%= @post.comments.count %> | Likes:📝<%= @post.likes.count %></p>
     <p><%= @post.text %></p>
   </div>
 
   <div class="comments">
-    <% @post.comments.each do |comment| %>
-      <div class="comment">
-        <p><%= comment.user&.name %>: <%= comment.text %></p>
-      </div>
-    <% end %>
+  <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <p><%= comment.user&.name %>: <%= comment.text %></p>
+      <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', user_post_comment_path(@user, @post, comment.id), :method => :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  <% end %>
   </div>
 
   <%= link_to 'Create New Comment 💬', new_user_post_comment_path(@user, @post), class: 'button' %>
-  <h3 style="color: #336699; margin: 12px 50px">Create a new comment💬</h3>
-  <%= form_with url: user_post_likes_path(@user, @post), method: :post do |f| %>
-  
+
     <div>
+  <%= form_with url: user_post_likes_path(@user, @post), method: :post do |f| %>
       <%= f.submit 'Like 👍', class: 'button'%>
     </div>
   <% end %>
