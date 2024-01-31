@@ -25,7 +25,7 @@ describe 'Post Index Page Features', type: :feature, js: true do
     [
       Comment.create(user:, text: 'comment 1', post: user.posts.first),
       Comment.create(user:, text: 'comment 2', post: user.posts.first),
-      Comment.create(user:, text: 'comment 3', post: user.posts.first)
+      Comment.create(user:, text: 'comment 3', post: user.posts.first),
       Comment.create(user:, text: 'comment 4', post: user.posts.first),
       Comment.create(user:, text: 'comment 5', post: user.posts.first),
       Comment.create(user:, text: 'comment 6', post: user.posts.first),
