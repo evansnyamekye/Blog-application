@@ -1,31 +1,33 @@
 require 'rails_helper'
 
 describe 'Post Index Page Features', type: :feature, js: true do
-  let(:user){User.create(
-    name: 'Harley Quinn',
-    photo:  'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700',
-    bio: 'user Pix',
-  )}
+  let(:user) do
+    User.create(
+      name: 'Harley Quinn',
+      photo: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700',
+      bio: 'user Pix'
+    )
+  end
 
   let!(:posts) do
     [
       Post.create(author: user, title: 'Post 1', text: 'text 1'),
       Post.create(author: user, title: 'Post 2', text: 'text 2'),
       Post.create(author: user, title: 'Post 3', text: 'text 3'),
-      Post.create(author: user, title: 'Post 4', text: 'text 4'),
+      Post.create(author: user, title: 'Post 4', text: 'text 4')
     ]
   end
 
   let!(:comments) do
     [
-      Comment.create(user: user, text: 'comment 1', post: user.posts.first),
-      Comment.create(user: user, text: 'comment 2', post: user.posts.first),
-      Comment.create(user: user, text: 'comment 3', post: user.posts.first),
+      Comment.create(user:, text: 'comment 1', post: user.posts.first),
+      Comment.create(user:, text: 'comment 2', post: user.posts.first),
+      Comment.create(user:, text: 'comment 3', post: user.posts.first)
     ]
   end
 
   before :each do
-    Like.create(user: user,post: user.posts.first)
+    Like.create(user:, post: user.posts.first)
     visit user_posts_path(user)
   end
 

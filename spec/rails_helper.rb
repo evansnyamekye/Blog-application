@@ -78,7 +78,5 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  if defined?(Webdrivers)
-    Webdrivers::Chromedriver.required_version = 'Version 121.0.6167.86 '
-  end
+  Webdrivers::Chromedriver.required_version = 'Version 121.0.6167.86 ' if defined?(Webdrivers)
 end
