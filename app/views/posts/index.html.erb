@@ -5,15 +5,16 @@
       <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" %>
     </div>
     <div class="user">
-      :bust_in_silhouette:<h2><%= link_to @user.name, user_path(@user) %></h2>
-      <p><strong>Number of Posts::memo:</strong> <%= @user.posts.count %></p>
+      👤<h2><%= link_to @user.name, user_path(@user) %></h2>
+      <p><strong>Number of Posts:📝</strong> <%= @user.posts.count %></p>
     </div>
   </div>
+
   <% @posts.each do |post| %>
     <div class="post">
       <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
       <p><%= post.text %></p>
-      <p class="count">Comments::speech_balloon:<%= post.comments.size %> | Likes::+1:<%= post.likes.size %></p>
+      <p class="count">Comments:💬<%= post.comments.size %> | Likes:👍<%= post.likes.size %></p>
     </div>
     <div class="comments">
       <% post.five_most_recent_comments.each do |comment| %>
@@ -23,6 +24,7 @@
       <% end %>
     </div>
   <% end %>
+
   <%= link_to 'Pagination', user_posts_path(@user), class: 'button' %>
-  <%= link_to 'Create New Post :memo:', new_user_post_path(@user), class: 'button' %>
+  <%= link_to 'Create New Post 📝', new_user_post_path(@user), class: 'button' %> 
 </div>
