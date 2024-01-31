@@ -68,7 +68,7 @@ describe 'Post Index Page Features', type: :feature, js: true do
   # I can see the first comments on a post
   it 'can see the first comments of a post' do
     posts.each do |post|
-      post.comments.each do |comment|
+      post.five_most_recent_comments.each do |comment|
         expect(page).to have_content(comment.text)
       end
     end
@@ -85,12 +85,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
       expect(page).to have_content(post.likes_counter)
     end
   end
-
   # I can see a section for pagination if there are more posts than fit on the view.
   it 'can see a section for pagination if there are more posts than fit on the view' do
     expect(page).to have_link('Pagination')
   end
-
   # When I click on a post, it redirects me to that post's show page.
   it 'When I click on a post, it redirects me to that post\'s show page' do
     click_link(user.posts.first.title)
