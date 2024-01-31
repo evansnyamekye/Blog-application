@@ -16,8 +16,7 @@ describe 'Post Index Page Features', type: :feature, js: true do
       Post.create(author: user, title: 'Post 3', text: 'text 3'),
       Post.create(author: user, title: 'Post 4', text: 'text 4'),
       Post.create(author: user, title: 'Post 5', text: 'text 5'),
-      Post.create(author: user, title: 'Post 6', text: 'text 6'),
-      Post.create(author: user, title: 'Post 7', text: 'text 7')
+      Post.create(author: user, title: 'Post 6', text: 'text 6')
     ]
   end
 
@@ -28,8 +27,7 @@ describe 'Post Index Page Features', type: :feature, js: true do
       Comment.create(user:, text: 'comment 3', post: user.posts.first),
       Comment.create(user:, text: 'comment 4', post: user.posts.first),
       Comment.create(user:, text: 'comment 5', post: user.posts.first),
-      Comment.create(user:, text: 'comment 6', post: user.posts.first),
-      Comment.create(user:, text: 'comment 7', post: user.posts.first)
+      Comment.create(user:, text: 'comment 6', post: user.posts.first)
     ]
   end
 
@@ -87,10 +85,12 @@ describe 'Post Index Page Features', type: :feature, js: true do
       expect(page).to have_content(post.likes_counter)
     end
   end
+
   # I can see a section for pagination if there are more posts than fit on the view.
   it 'can see a section for pagination if there are more posts than fit on the view' do
     expect(page).to have_link('Pagination')
   end
+
   # When I click on a post, it redirects me to that post's show page.
   it 'When I click on a post, it redirects me to that post\'s show page' do
     click_link(user.posts.first.title)
