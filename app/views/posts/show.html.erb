@@ -7,7 +7,7 @@
 
   <div class="user_info">
     <div class="img">
-      <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" %>
+    <%= image_tag @user.photo, alt: "User Photo", class: "user-photo" if @user.photo %>
     </div>
     <div class="user">
       👤<h2><%= link_to @user.name, user_path(@user) %></h2>
