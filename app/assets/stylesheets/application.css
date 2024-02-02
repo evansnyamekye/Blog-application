@@ -125,16 +125,3 @@ a:hover {
 .login-form input[type="password"]:focus + .placeholder-label {
   display: block;
 }
-
-/* Button */
-.button {
-  background-color: #333;
-  border: 2px solid #333;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: center;
-  margin: 5px;
-  padding: 5px;
-  width: 10rem;
-  color: #fff;
-}
