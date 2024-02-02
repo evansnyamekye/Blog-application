@@ -91,3 +91,37 @@ a:hover {
   padding: 10px;
   text-align: start;
 }
+
+.logIn-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Form */
+.login-form {
+  width: 50%;
+}
+
+.placeholder-label {
+  display: none;
+}
+
+.login-form .input {
+  width: 100%;
+}
+
+.login-submit {
+  width: 100%;
+}
+
+/* Placeholder Label Animation */
+.login-form input[type="email"]::placeholder,
+.login-form input[type="password"]::placeholder {
+  color: #999;
+}
+
+.login-form input[type="email"]:focus + .placeholder-label,
+.login-form input[type="password"]:focus + .placeholder-label {
+  display: block;
+}
